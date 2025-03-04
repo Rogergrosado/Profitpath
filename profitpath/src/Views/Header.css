@@ -1,0 +1,79 @@
+/* Color Palette */
+:root {
+    --dark-blue: #222831;
+    --bright-orange: #fd7014;
+    --white: #ffffff;
+    --gray-blue: #37414f;
+    --dark-black: #0d0f13;
+    --light-orange: #fd8f47;
+  }
+  
+  /* Header Container */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: var(--dark-blue);
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  /* Logo Section */
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 15px; 
+    padding-right: 30px; 
+  }
+  
+  .brand-logo {
+    height: 50px;
+  }
+  
+  .brand-slogan {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--light-orange);
+  }
+  
+  /* Navigation Links */
+  .nav-links {
+    flex-grow: 1; 
+    display: flex;
+    justify-content: center; 
+    gap: 40px;
+  }
+  
+  .nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links a:hover {
+    color: var(--bright-orange);
+  }
+  
+  /* CTA Button */
+  .cta-button {
+    background: var(--bright-orange);
+    color: var(--white);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    margin-left: auto; 
+  }
+  
+  .cta-button:hover {
+    background: var(--light-orange);
+  }
+  

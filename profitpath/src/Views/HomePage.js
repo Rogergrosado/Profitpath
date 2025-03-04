@@ -2,19 +2,18 @@
 import React, { useState } from 'react';
 import './HomePage.css';
 
-const HomePage = () => {
-    const [isBlue, setIsBlue] = useState(false);
+import Header from './Header.js';
+import Body from './Body.js';
+import Footer from './Footer.js';
 
-    const toggleColor = () => {
-        setIsBlue(!isBlue);
-    };
+const HomePage = () => {
 
     return (
         <div className="profit-homepage">
-            <h1>Welcome to ProfitPath</h1>
-            <p>Charting the Best Path to Profitability.</p>
-            <div className={`profit-color-box ${isBlue ? 'profit-blue' : 'profit-red'}`}></div>
-            <button className="profit-button" onClick={toggleColor}>Change Color</button>
+            <Header />
+            <Body />
+            <Footer />
+       
         </div>
     );
 };

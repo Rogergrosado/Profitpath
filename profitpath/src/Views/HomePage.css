@@ -3,39 +3,3 @@
     text-align: center;
     padding: 50px;
 }
-
-.profit-homepage h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-}
-
-.profit-homepage p {
-    font-size: 1.5rem;
-    color: #555;
-}
-
-.profit-color-box {
-    width: 100px;
-    height: 100px;
-    margin: 20px auto;
-    transition: background-color 0.5s ease-in-out;
-}
-
-.profit-color-box.profit-red {
-    background-color: rgb(156, 40, 40);
-}
-
-.profit-color-box.profit-blue {
-    background-color: rgb(109, 99, 73);
-}
-
-.profit-button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.profit-button:hover {
-    background-color: #ddd;
-}
