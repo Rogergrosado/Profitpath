@@ -1,0 +1,5 @@
+ id |    asin    |           title           | price |            image_url             |         created_at         
+----+------------+---------------------------+-------+----------------------------------+----------------------------
+  1 | B08N5WRWNW | Amazon Echo Dot (4th Gen) | 49.99 | https://example.com/echo-dot.jpg | 2025-03-05 00:39:04.551323
+(1 row)
+
