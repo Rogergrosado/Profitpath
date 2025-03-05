@@ -1,9 +1,9 @@
-const express = require("express");
-const { verifyUser } = require("../controllers/authController");
+import express from "express";
+import { verifyUser } from "../controllers/authController.js"; // ✅ Ensure `.js` extension is included
 
 const router = express.Router();
 
 // Define Authentication Route
 router.post("/verify", verifyUser);
 
-module.exports = router;  // ✅ Ensure this line exists
+export default router; // ✅ Use `export default` for ES Modules

@@ -1,6 +1,6 @@
-const admin = require("../config/firebaseAdmin");
+import admin from "../config/firebaseAdmin.js"; // ✅ Ensure `.js` extension
 
-const verifyUser = async (req, res) => {
+export async function verifyUser(req, res) {
   const token = req.body.token; // Token should be sent in the request body
 
   if (!token) {
@@ -13,6 +13,4 @@ const verifyUser = async (req, res) => {
   } catch (error) {
     res.status(401).json({ error: "Invalid token" });
   }
-};
-
-module.exports = { verifyUser };
+}

@@ -1,4 +1,4 @@
-const admin = require("../config/firebaseAdmin");
+import admin from "../config/firebaseAdmin.js"; // ✅ Ensure `.js` extension
 
 const verifyToken = async (req, res, next) => {
   const token = req.headers.authorization?.split(" ")[1];
@@ -14,4 +14,4 @@ const verifyToken = async (req, res, next) => {
   }
 };
 
-module.exports = verifyToken;
+export default verifyToken; // ✅ Use `export default` for ES Modules

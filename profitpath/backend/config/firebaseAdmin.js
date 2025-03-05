@@ -1,10 +1,15 @@
-const admin = require("firebase-admin");
-require("dotenv").config();
+import admin from "firebase-admin";
+import dotenv from "dotenv";
+import { readFileSync } from "fs";
 
-const serviceAccount = JSON.parse(process.env.FIREBASE_ADMIN_SDK);
+dotenv.config();
 
+// ✅ Load service account JSON
+const serviceAccount = JSON.parse(readFileSync(new URL("../firebase-adminsdk.json", import.meta.url)));
+
+// ✅ Initialize Firebase Admin
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
 
-module.exports = admin;
+export default admin; // ✅ Use `export default` to support ES Modules
