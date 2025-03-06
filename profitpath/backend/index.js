@@ -17,6 +17,20 @@ app.use(express.json());
 
 console.log("✅ Middleware Applied");
 
+// ✅ Catch Unhandled Errors (Prevents Crashes)
+process.on("uncaughtException", (err) => {
+  console.error("❌ Uncaught Exception:", err);
+});
+
+process.on("unhandledRejection", (reason, promise) => {
+  console.error("❌ Unhandled Rejection:", reason);
+});
+
+// ✅ Keep Railway Service Alive (Prevents Auto-Stop)
+setInterval(() => {
+  console.log("🚀 Keeping Railway service alive...");
+}, 60000); // Every 60 seconds
+
 // ✅ Import Routes
 import inventoryRoutes from "./routes/inventoryRoutes.js";
 import authRoutes from "./routes/authRoutes.js";
@@ -32,6 +46,8 @@ app.get("/test-db", async (req, res) => {
   try {
     console.log("🔍 Checking database connection...");
     const result = await pool.query("SELECT NOW()");
+    console.log("✅ Database Response:", result.rows[0]);
+
     res.json({ success: true, timestamp: result.rows[0] });
   } catch (error) {
     console.error("❌ Database connection error:", error);
@@ -46,6 +62,7 @@ app.get("/test-redis", async (req, res) => {
     await redisClient.set("test-key", "Redis is working!");
     const value = await redisClient.get("test-key");
     console.log("✅ Redis test successful:", value);
+
     res.json({ message: value });
   } catch (error) {
     console.error("❌ Redis error:", error);
@@ -58,7 +75,17 @@ const server = app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
 
+// ✅ Handle Server Errors
 server.on("listening", () => console.log("🌍 Express is listening on", server.address()));
 server.on("error", (err) => console.error("❌ Express Server Error:", err));
+
+// ✅ Gracefully Handle Railway Shutdown (Prevents SIGTERM Issues)
+process.on("SIGTERM", () => {
+  console.log("🚨 SIGTERM received. Shutting down server...");
+  server.close(() => {
+    console.log("✅ Server shut down gracefully.");
+    process.exit(0);
+  });
+});
 
 export { app, server }; // ✅ Export for Jest testing
