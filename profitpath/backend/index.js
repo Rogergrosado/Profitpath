@@ -72,9 +72,11 @@ app.get("/test-redis", async (req, res) => {
 
 // ✅ Ensure Express Uses Railway's Assigned Port
 const PORT = process.env.PORT || 3000;
-  app.listen(PORT () => {
+app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
+
+
 
 // ✅ Gracefully Handle Railway Shutdown (Prevents SIGTERM Issues)
 process.on("SIGTERM", () => {
