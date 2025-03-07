@@ -72,7 +72,7 @@ app.get("/test-redis", async (req, res) => {
 
 // ✅ Ensure Express Uses Railway's Assigned Port
 const PORT = process.env.PORT || 3000;
-const server = app.listen(PORT, "0.0.0.0", () => {
+  app.listen(PORT () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
 
